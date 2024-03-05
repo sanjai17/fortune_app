@@ -9,8 +9,8 @@ docker run -d -p 8080:8080  --name fortune-container fortune-api
 3. Ran the below AWS CLI commands to authorize and push the docker images into ECR repository(prior to this i created new repository in ECR.)
 
   aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 558737725740.dkr.ecr.us-east-1.amazonaws.com
-  docker tag devops:latest 558737725740.dkr.ecr.us-east-1.amazonaws.com/devops:latest
-  docker push 558737725740.dkr.ecr.us-east-1.amazonaws.com/devops:latest
+  docker tag fortune-api 558737725740.dkr.ecr.us-east-1.amazonaws.com/fortune-api:latest
+  docker push 558737725740.dkr.ecr.us-east-1.amazonaws.com/fortune-api:latest
 
 
 
