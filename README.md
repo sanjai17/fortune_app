@@ -9,7 +9,7 @@ pre-requistes: I used an EC2 instance and installed Docker and terraform. From t
 
  1. Firstly, the docker image was generated from the repo --> https://github.com/wego/devops-fortune-api
 
- 2. Then I have created ECR repository in my AWS account and pushed the docker image into the AWS ECR repository 
+ 2. Then I have created ECR repository in my AWS account and pushed the docker image into the AWS ECR repository (I have mentioned the docker and AWS ECR CLI cmds in this file --> docker_ecr_cmds.txt which is used to create and push docker image into repository)
 
  3. Now, I broke down the bring up of an ECS cluster into three parts and used three terraform scripts to deploy the application to troubleshoot any issues if in-case.
     Below are the three parts/steps:
