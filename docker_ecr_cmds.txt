@@ -1,0 +1,19 @@
+1. Downloaded the .zip file from the github repo --> https://github.com/wego/devops-fortune-api
+2. Copied to my EC2 instance where docker and terraform is already installed through SCP.
+Ran the below cmds to generate the docker image and test in local
+
+cd api
+docker build -t fortune-api .
+docker run -d -p 8080:8080  --name fortune-container fortune-api
+
+3. Ran the below AWS CLI commands to authorize and push the docker images into ECR repository(prior to this i created new repository in ECR.)
+
+  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 558737725740.dkr.ecr.us-east-1.amazonaws.com
+  docker tag devops:latest 558737725740.dkr.ecr.us-east-1.amazonaws.com/devops:latest
+  docker push 558737725740.dkr.ecr.us-east-1.amazonaws.com/devops:latest
+
+
+
+Once the image was pushed successfully into ECR then we proceed to bring up the ECS cluster using terraform scripts mentioned in the sub-directory --> terraform/*.tf  
+
+    
